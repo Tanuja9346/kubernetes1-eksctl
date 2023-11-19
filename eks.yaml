@@ -4,15 +4,10 @@ kind: ClusterConfig
 metadata:
   name: eks-spot-cluster
   region: us-east-1
-  
-  vpc:
-  id: "vpc-0937c7ba7ea9d4728"  # (optional, must match VPC ID used for each subnet below)
-       
-   
+
 managedNodeGroups: # this is also completely managed by AWS
   - name: spot
     instanceType: m5.large
-  
     # your K8 node can be anytime taken back by AWS
     spot: true
     availabilityZones:
