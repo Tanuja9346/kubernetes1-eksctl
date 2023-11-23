@@ -65,10 +65,10 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &>>$LOGFILE
 
 VALIDATE $? "kubectl installed"
 
-git clone https://github.com/ahmetb/kubectx /opt/kubectx &>>$LOGFILE
-ln -s /opt/kubectx/kubens /usr/local/bin/kubens &>>$LOGFILE
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
 
-VALIDATE $? "kubens Installation"
-
+VALIDATE $? "Helm Installation"
 
 echo -e "$R Please logout and login again $N"
